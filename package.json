@@ -1,0 +1,28 @@
+{
+  "name": "monogoose-seed-csv",
+  "version": "0.0.1",
+  "description": "Seed data from *.csv files for Mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/msc.test.js"
+  },
+  "keywords": [
+    "mongoose",
+    "seed",
+    "mongo",
+    "mongodb",
+    "node",
+    "node.js",
+    "csv"
+  ],
+  "author": "noizbuster",
+  "license": "MIT",
+  "dependencies": {
+    "csv-parse": "^2.5.0",
+    "lodash": "^4.17.10",
+    "mongoose-seed": "^0.5.0"
+  },
+  "devDependencies": {
+    "mongoose": "^5.2.4"
+  }
+}

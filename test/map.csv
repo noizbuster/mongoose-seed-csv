@@ -1,0 +1,5 @@
+id,name,description,img_path,grid_path,map_data,uuid,site_id
+1,3 Floor,ETRI Building No 12 3 Floor,etri3.png,etri3.bmp,"{""width_px"":1347,""height_px"":1020,""origin_px"":{""x"":0,""y"":1019},""width_gm"":135,""height_gm"":102,""scale_m2px"":20}",3@etri12b,1
+2,5 Floor,ETRI Building No 12 5 Floor,etri5.png,etri5.bmp,"{""width_px"":1364,""height_px"":1032,""origin_px"":{""x"":0,""y"":1031},""width_gm"":136,""height_gm"":103,""scale_m2px"":20}",5@etri12b,1
+3,7 Floor,ETRI Building No 12 7 Floor,etri7.png,etri7.bmp,"{""width_px"":1088,""height_px"":1005,""origin_px"":{""x"":0,""y"":1005},""width_gm"":109,""height_gm"":101,""scale_m2px"":20}",7@etri12b,1
+4,Namsung Plaza 6th Floor,Grid Map for Namsung Plaza 6th Floor,namsung.png,namsung.bmp,"{""width_px"":460,""height_px"":760,""origin_px"":{""x"":0,""y"":760},""width_gm"":46,""height_gm"":76,""scale_m2px"":20}",namsung_6th_floor,1
