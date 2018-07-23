@@ -22,36 +22,35 @@ modelName = function (filepath) {
  * @typedef {object} CSV_Entry
  * @property {string} path - csv file path
  * @property {string} [model] - model name
- * @property {string} [parseOption] - individual parse option (it will override csvParseOption)
+ * @property {string} [parseOptions] - individual parse option (it will override csvParseOption)
  */
 
 /**
  * @param {[CSV_Entry || string]} csvEntry - csv entry or csv file paths
- * @param {object} [csvParseOption] - csv parse option, see: https://github.com/adaltas/node-csv-parse
+ * @param {object} [csvParseOptions] - csv parse option, see: https://github.com/adaltas/node-csv-parse
  * @param {function} [cb] - callback function see: https://github.com/seanemmer/mongoose-seed
  *
  * @returns {Promise<>}
  */
-seeder.populateFromCSV = async function (csvEntry, csvParseOption, cb) {
+seeder.populateFromCSV = async function (csvEntry, csvParseOptions, cb) {
     let data = [];
     for (let csvItem of csvEntry) {
         let modelData = {};
         if (typeof csvItem === 'string') {
             const content = fs.readFileSync(path.resolve(csvItem), 'utf-8');
             modelData.model = modelName(csvItem);
-            modelData.documents = await parseCSV(content, csvParseOption || {});
+            modelData.documents = await parseCSV(content, csvParseOptions || {});
         } else if (typeof csvItem === 'object'
             && csvItem.hasOwnProperty('path')) {
             const content = fs.readFileSync(path.resolve(csvItem.path), 'utf-8');
             modelData.model = csvItem.model || modelName(csvItem.path);
-            modelData.documents = await parseCSV(content, csvItem.parseOption || csvParseOption || {});
+            modelData.documents = await parseCSV(content, csvItem.parseOptions || csvParseOptions || {});
         } else {
             return;
         }
         data.push(modelData);
     }
 
-    // console.log(data);
     return new Promise((resolve, reject) => {
         seeder.populateModels(data, (err, data) => {
             if(err){
