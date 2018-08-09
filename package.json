@@ -1,7 +1,11 @@
 {
-  "name": "monogoose-seed-csv",
+  "name": "mongoose-seed-csv",
   "version": "0.0.1",
   "description": "Seed data from *.csv files for Mongoose",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/noizbuster/mongoose-seed-csv.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "node test/msc.test.js"
