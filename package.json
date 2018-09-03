@@ -1,10 +1,10 @@
 {
   "name": "mongoose-seed-csv",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Seed data from *.csv files for Mongoose",
-  "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/noizbuster/mongoose-seed-csv.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noizbuster/mongoose-seed-csv.git"
   },
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "dependencies": {
     "csv-parse": "^2.5.0",
     "lodash": "^4.17.10",
-    "mongoose-seed": "^0.5.0"
+    "mongoose-seed": "^0.5.1"
   },
   "devDependencies": {
     "mongoose": "^5.2.4"
