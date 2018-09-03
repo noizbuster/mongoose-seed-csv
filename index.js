@@ -28,6 +28,7 @@ modelName = function (filepath) {
 /**
  * @param {[CSV_Entry || string]} csvEntry - csv entry or csv file paths
  * @param {object} [csvParseOptions] - csv parse option, see: https://github.com/adaltas/node-csv-parse
+ * @param {boolean} [csvParseOptions.parseDeep] - if true, the parser try to parse each value as JSON
  * @param {function} [cb] - callback function see: https://github.com/seanemmer/mongoose-seed
  *
  * @returns {Promise<>}
@@ -48,12 +49,25 @@ seeder.populateFromCSV = async function (csvEntry, csvParseOptions, cb) {
         } else {
             return;
         }
+        if (csvParseOptions.parseDeep) {
+            modelData.documents = _.map(modelData.documents, (doc) => {
+                return _.mapValues(doc, (value) => {
+                    try {
+                        return JSON.parse(value);
+                    } catch (e) {
+                        return value;
+                    }
+                })
+            });
+        }
         data.push(modelData);
     }
 
     return new Promise((resolve, reject) => {
+        console.log('TEMP: start populate with data', JSON.stringify(data, null, 4));
         seeder.populateModels(data, (err, data) => {
-            if(err){
+            if (err) {
+                console.log('TEMP: err', err)
                 return reject(err);
             }
             cb(err, data);

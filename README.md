@@ -9,7 +9,7 @@ seeder.populateFromCSV(
         './test/location.csv',
         {path: './test/map.csv', model: 'Map', parseOptions: {columns: true}}
     ],
-    {columns: true},
+    {columns: true, parseDeep: true},
     function(){
         seeder.disconnect();
     });
@@ -21,6 +21,7 @@ seeder.populateFromCSV(
     * you can you both filepath and CSV_Entry Object and even mixed
 * csvParseOptions
     * see: [options for cvs-parse](https://github.com/adaltas/node-csv-parse)
+    * +`parseDeep`: if true, the parser try to parse each value as JSON
 * callback
     * same callback as in [mongoose-seed's](https://github.com/seanemmer/mongoose-seed) [populateModels](https://github.com/seanemmer/mongoose-seed/blob/master/README.md#seederpopulatemodelsdataarray-callback)
 ## CSV_EntryObject
